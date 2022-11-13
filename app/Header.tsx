@@ -1,26 +1,35 @@
 import Image from "next/image";
 import React from "react";
 import LogoutButton from "./LogoutButton";
-import { unstable_getServerSession } from "next-auth/next";
 import Link from "next/link";
 
-const Header = async () => {
-  const session = await unstable_getServerSession();
-
+const Header = async ({ session }: any) => {
   if (session) {
     return (
       <header
         className="sticky top-0 
         bg-white shadow-md z-50 justify-between
         flex items-center h-14 p-10">
-        <div>
+        <div className="flex">
           <Image
-            className="object-contain rounded-full mx-2"
-            src="https://picsum.photos/40/40"
+            className="rounded-full mx-2"
+            src={session.user.image}
             alt="logo"
-            width={40}
+            width={50}
             height={40}
           />
+          <div className="flex flex-col">
+            <Link href="/" className="text-xl font-bold text-gray-700">
+              Realtime Chat
+            </Link>
+
+            <p>
+              <span className="text-gray-500">logged in as </span>
+              <span className="font-bold text-gray-700">
+                {session.user.name}
+              </span>
+            </p>
+          </div>
         </div>
         <LogoutButton />
       </header>
@@ -31,14 +40,15 @@ const Header = async () => {
         className="sticky top-0 
         bg-white shadow-md z-50 justify-between
         flex items-center h-14 p-10">
-        <div>
-          <Image
-            className="object-contain rounded-full mx-2"
-            src="https://picsum.photos/40/40"
-            alt="logo"
-            width={40}
-            height={40}
-          />
+        <div className="flex">
+          <div className="flex flex-col">
+            <Link href="/" className="text-xl font-bold text-gray-700">
+              Realtime Chat
+            </Link>
+            <p>
+              <span className="text-gray-500">Sign In to chat </span>
+            </p>
+          </div>
         </div>
         <Link
           href="/api/auth/signin"

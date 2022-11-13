@@ -6,6 +6,7 @@ import { Message } from "../typings";
 import useSWR from "swr";
 import fetcher from "../utils/fetchMessages";
 import { unstable_getServerSession } from "next-auth/next";
+import { useSession } from "next-auth/react";
 
 type Props = {
   session: Awaited<ReturnType<typeof unstable_getServerSession>>;
@@ -18,6 +19,7 @@ const ChatInput = ({ session }: Props) => {
     error,
     mutate,
   } = useSWR<Message[]>("/api/getMessages", fetcher);
+  const { data: sessionData } = useSession();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,9 +37,9 @@ const ChatInput = ({ session }: Props) => {
       message: messageToSend,
       created_at: Date.now(),
       user: {
-        username: "Fudhoil",
-        email: "fudhoilbb@gmail.com",
-        avatar: "https://picsum.photos/40/40",
+        username: sessionData?.user?.name!,
+        email: sessionData?.user?.email!,
+        avatar: sessionData?.user?.image!,
       },
     };
 
