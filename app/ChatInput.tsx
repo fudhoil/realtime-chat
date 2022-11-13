@@ -5,14 +5,14 @@ import { v4 as uuidv4 } from "uuid";
 import { Message } from "../typings";
 import useSWR from "swr";
 import fetcher from "../utils/fetchMessages";
-import { unstable_getServerSession } from "next-auth/next";
+// import { unstable_getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
 
-type Props = {
-  session: Awaited<ReturnType<typeof unstable_getServerSession>>;
-};
+// type Props = {
+//   session: Awaited<ReturnType<typeof unstable_getServerSession>>;
+// };
 
-const ChatInput = ({ session }: Props) => {
+const ChatInput = () => {
   const [input, setInput] = React.useState("");
   const {
     data: messages,
@@ -87,12 +87,12 @@ const ChatInput = ({ session }: Props) => {
             "
         placeholder="Type a message"
         value={input}
-        disabled={!session}
+        disabled={!sessionData}
         onChange={(e) => setInput(e.target.value)}
       />
       <button
         type="submit"
-        disabled={!session}
+        disabled={!sessionData}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-blue-200">
         Send
       </button>

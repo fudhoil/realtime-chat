@@ -1,6 +1,5 @@
 {
   "private": true,
-  "main": "page.tsx",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
