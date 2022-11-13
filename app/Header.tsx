@@ -19,9 +19,16 @@ const Header = ({ session }: any) => {
             height={40}
           />
           <div className="flex flex-col">
-            <Link href="/" className="text-xl font-bold text-gray-700">
-              Realtime Chat
-            </Link>
+            <div className="space-x-2">
+              <Link href="/" className="text-xl font-bold text-gray-700">
+                Realtime Chat
+              </Link>
+              <span className="text-[0.7rem] text-blue-500">
+                <Link href="https://fudhoil.vercel.app" target={"_blank"}>
+                  &copy; fudhoil
+                </Link>
+              </span>
+            </div>
 
             <p>
               <span className="text-gray-500">logged in as </span>
@@ -42,19 +49,21 @@ const Header = ({ session }: any) => {
         flex items-center h-14 p-10">
         <div className="flex">
           <div className="flex flex-col">
-            <Link href="/" className="text-xl font-bold text-gray-700">
-              Realtime Chat
-            </Link>
+            <div className="space-x-2">
+              <Link href="/" className="text-xl font-bold text-gray-700">
+                Realtime Chat
+              </Link>
+              <span className="text-[0.7rem] text-blue-500">
+                <Link href="https://fudhoil.vercel.app" target={"_blank"}>
+                  &copy; fudhoil
+                </Link>
+              </span>
+            </div>
             <p>
               <span className="text-gray-500">Sign In to chat </span>
             </p>
           </div>
         </div>
-        <Link
-          href="/api/auth/signin"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Sign In
-        </Link>
       </header>
     );
   }
