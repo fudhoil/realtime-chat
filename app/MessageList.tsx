@@ -14,7 +14,7 @@ const MessageList = () => {
     mutate,
   } = useSWR<Message[]>("/api/getMessages", fetcher);
 
-  const messageRef = useRef(null);
+  const messageRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     const channel = clientPusher.subscribe("messages");
@@ -33,7 +33,7 @@ const MessageList = () => {
     });
 
     if (messages) {
-      messageRef.current.scrollIntoView({ behavior: "smooth" });
+      messageRef.current!.scrollIntoView({ behavior: "smooth" });
     }
 
     return () => {
