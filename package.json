@@ -1,5 +1,6 @@
 {
   "private": true,
+  "main": "page.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
