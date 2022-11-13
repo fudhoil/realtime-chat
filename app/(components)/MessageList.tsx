@@ -6,7 +6,6 @@ import useSWR from "swr";
 import MessageComponent from "./MessageComponent";
 import { useEffect, useRef } from "react";
 import { clientPusher } from "../../pusher";
-import { Message } from "../../typings";
 
 type Props = {
   initialMessages: Message[];
