@@ -7,6 +7,6 @@ export type User = {
 export type Message = {
   id: string;
   message: string;
-  created_at: Date.now();
+  created_at: number;
   user: User;
 };

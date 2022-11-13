@@ -27,7 +27,7 @@ export default async function handler(
     created_at: Date.now(),
   };
 
-  await redis.hset("messages", newMessage.id, JSON.stringify(newMessage));
+  await redis.hset("messages", message.id, JSON.stringify(newMessage));
 
   pusher.trigger("messages", "new-message", newMessage);
   res.status(200).json({ message: newMessage });

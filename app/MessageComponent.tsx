@@ -16,8 +16,8 @@ const MessageComponent = ({ message }: Props) => {
       `}>
         <Image
           src={message.user.avatar}
-          width={50}
-          height={10}
+          width={40}
+          height={40}
           alt="avatar"
           className="rounded-full"
         />
