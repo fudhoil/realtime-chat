@@ -2,9 +2,9 @@
 
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Message } from "../typings";
+import { Message } from "../../typings";
 import useSWR from "swr";
-import fetcher from "../utils/fetchMessages";
+import fetcher from "../../utils/fetchMessages";
 // import { unstable_getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
 

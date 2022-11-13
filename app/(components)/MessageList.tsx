@@ -1,13 +1,18 @@
 "use client";
 
-import { Message } from "../typings";
-import fetcher from "../utils/fetchMessages";
+import { Message } from "../../typings";
+import fetcher from "../../utils/fetchMessages";
 import useSWR from "swr";
 import MessageComponent from "./MessageComponent";
 import { useEffect, useRef } from "react";
-import { clientPusher } from "../pusher";
+import { clientPusher } from "../../pusher";
+import { Message } from "../../typings";
 
-const MessageList = () => {
+type Props = {
+  initialMessages: Message[];
+};
+
+const MessageList = ({ initialMessages }: Props) => {
   const {
     data: messages,
     error,
@@ -45,7 +50,7 @@ const MessageList = () => {
   return (
     <>
       <div className="flex flex-col scrollbar-hide pb-32 max-w-2xl xl:max-w-4xl mx-auto">
-        {messages
+        {(messages || initialMessages)
           ?.slice(0)
           .reverse()
           .map((message) => (
