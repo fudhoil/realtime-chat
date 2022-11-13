@@ -3,7 +3,7 @@ import React from "react";
 import LogoutButton from "./LogoutButton";
 import Link from "next/link";
 
-const Header = async ({ session }: any) => {
+const Header = ({ session }: any) => {
   if (session) {
     return (
       <header
