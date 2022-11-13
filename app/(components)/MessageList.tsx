@@ -7,11 +7,7 @@ import MessageComponent from "./MessageComponent";
 import { useEffect, useRef } from "react";
 import { clientPusher } from "../../pusher";
 
-type Props = {
-  initialMessages: Message[];
-};
-
-const MessageList = ({ initialMessages }: Props) => {
+const MessageList = () => {
   const {
     data: messages,
     error,
@@ -49,10 +45,10 @@ const MessageList = ({ initialMessages }: Props) => {
   return (
     <>
       <div className="flex flex-col scrollbar-hide pb-32 max-w-2xl xl:max-w-4xl mx-auto">
-        {(messages || initialMessages)
+        {messages
           ?.slice(0)
           .reverse()
-          .map((message) => (
+          .map((message: Message) => (
             <MessageComponent key={message.id} message={message} />
           ))}
       </div>
