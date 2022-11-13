@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Message } from "../typings";
+import { Message } from "../../typings";
 import { useSession } from "next-auth/react";
 import Timeago from "react-timeago";
 
