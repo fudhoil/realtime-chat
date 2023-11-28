@@ -1,3 +1,5 @@
+### in maintenance, some configurations are outdated
+
 # Realtime Chat
 
 This is a realtime chat application built with Next JS 13, Upstash, and Pusher.
